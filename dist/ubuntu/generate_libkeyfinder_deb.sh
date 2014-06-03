@@ -90,7 +90,9 @@ echo ""
 
 if [[ $2 == --rebuild ]] ; then
     echo "************************* Copy old source package ***********************"
+    cd $ORIGDIR
     cp -v $3 $WORKINGPATH
+    cd ../../
 else
     echo "******************** Compress orig source directory *********************"
     ORIGDIR=$(pwd)
