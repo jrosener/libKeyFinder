@@ -22,6 +22,7 @@ function usage {
     echo ""
     echo " Optional args:"
     echo "    <--rebuild> <path_to_orig.tar.gz> do not use the actual source code but the defined .orig.tar.gz"
+    echo "    <--ppa_id> <id> is the last PPA id (default=1, to be incremented if building same version and same source code but other deb build script for example)"
     echo ""
     exit
 }
@@ -44,6 +45,15 @@ else
     usage
 fi
 
+# Set PPA ID.
+PPA_ID=1
+if [[ $2 == --ppa_id ]] ; then
+    PPA_ID=$3
+fi
+if [[ $4 == --ppa_id ]] ; then
+    PPA_ID=$5
+fi
+
 echo "****************************** Install tools ****************************"
 sudo apt-get install packaging-dev build-essential dh-make
 check_error
@@ -64,7 +74,7 @@ DEBPATH=$WORKINGPATH/deb
 SOURCEDIR_ORIG=libkeyfinder_source
 ORIGDIR=$(pwd)
 DISTRIB=$(lsb_release -cs)
-VERSIONPACKAGE=$VERSION-1ppa1~${DISTRIB}1
+VERSIONPACKAGE=$VERSION-1ppa${PPA_ID}~${DISTRIB}1
 TARPACK=libkeyfinder_$VERSION.orig.tar.gz
 export DEBEMAIL=julien.rosener@digital-scratch.org
 export DEBFULLNAME="Julien Rosener"
