@@ -59,7 +59,7 @@ Alternatively, you can transform a stream of audio into a chromatic representati
 ** BUILD process (using Qmake and QtCreator)
 *****************************************************************************
 
-[Ubuntu 32 or 64 bits]
+[Ubuntu 15.04 / Debian 8]
 1. sudo apt-get install build-esential qt5-default
 2. sudo apt-get install libboost-all-dev
 3. sudo apt-get install libfftw3-dev
