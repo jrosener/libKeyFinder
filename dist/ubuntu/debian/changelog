@@ -1,3 +1,9 @@
+libkeyfinder (0.11.0-1ppa1~vivid1) vivid; urgency=medium
+
+  * Build for Ubuntu 15.04 (vivid).
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Tue, 19 May 2015 22:08:24 +0200
+
 libkeyfinder (0.11.0-1ppa1~trusty1) trusty; urgency=medium
 
   * Upstream integration (0.11.0). 

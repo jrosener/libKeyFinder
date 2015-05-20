@@ -84,14 +84,11 @@ echo "**************************** Copy source code ***************************"
 git checkout debian/changelog
 check_error
 cd ../../
-git archive --format zip --output $WORKINGPATH/archive.zip `git rev-parse --abbrev-ref HEAD`
-unzip $WORKINGPATH/archive.zip -d $WORKINGPATH/$SOURCEDIR
-check_error
-echo ""
-echo ""
-
-echo "**************************** Install debian/ folder ***************************"
-cp -r $WORKINGPATH/$SOURCEDIR/dist/debian/debian $WORKINGPATH/$SOURCEDIR/
+git ls-files | grep -v googleTest/ | grep -v vs2010-external_libs/ | tar -czf $WORKINGPATH/$TARPACK -T -
+ORIGDIR=$(pwd)
+cd $WORKINGPATH/$SOURCEDIR
+tar -xzf $WORKINGPATH/$TARPACK
+cd $ORIGDIR
 check_error
 echo ""
 echo ""
