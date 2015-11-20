@@ -1,6 +1,6 @@
 /*************************************************************************
 
-  Copyright 2011-2013 Ibrahim Sha'ath
+  Copyright 2011-2015 Ibrahim Sha'ath
 
   This file is part of LibKeyFinder.
 
@@ -23,12 +23,19 @@
 
 namespace KeyFinder {
 
-  KeyClassifier::KeyClassifier(similarity_measure_t sm, tone_profile_t tp, bool offsetToC, const std::vector<float>& customProfile) {
-    // Profiles
-    major   = new ToneProfile(tp,                   SCALE_MAJOR, offsetToC, customProfile);
-    minor   = new ToneProfile(tp,                   SCALE_MINOR, offsetToC, customProfile);
-    silence = new ToneProfile(TONE_PROFILE_SILENCE, SCALE_MAJOR, offsetToC, customProfile);
-    similarityMeasure = sm;
+  KeyClassifier::KeyClassifier(const std::vector<double>& majorProfile, const std::vector<double>& minorProfile) {
+
+    if (majorProfile.size() != BANDS) {
+      throw Exception("Tone profile must have 72 elements");
+    }
+
+    if (minorProfile.size() != BANDS) {
+      throw Exception("Tone profile must have 72 elements");
+    }
+
+    major   = new ToneProfile(majorProfile);
+    minor   = new ToneProfile(minorProfile);
+    silence = new ToneProfile(std::vector<double>(BANDS, 0.0));
   }
 
   KeyClassifier::~KeyClassifier() {
@@ -37,17 +44,17 @@ namespace KeyFinder {
     delete silence;
   }
 
-  key_t KeyClassifier::classify(const std::vector<float>& chroma) {
-    std::vector<float> scores(24);
-    float bestScore = 0.0;
+  key_t KeyClassifier::classify(const std::vector<double>& chromaVector) {
+    std::vector<double> scores(24);
+    double bestScore = 0.0;
     for (unsigned int i = 0; i < SEMITONES; i++) {
-      float score;
-      score = major->similarity(similarityMeasure, chroma, i); // major
+      double score;
+      score = major->cosineSimilarity(chromaVector, i); // major
       scores[i*2] = score;
-      score = minor->similarity(similarityMeasure, chroma, i); // minor
+      score = minor->cosineSimilarity(chromaVector, i); // minor
       scores[(i*2)+1] = score;
     }
-    bestScore = silence->similarity(similarityMeasure, chroma, 0);
+    bestScore = silence->cosineSimilarity(chromaVector, 0);
     // find best match, defaulting to silence
     key_t bestMatch = SILENCE;
     for (unsigned int i = 0; i < 24; i++) {
