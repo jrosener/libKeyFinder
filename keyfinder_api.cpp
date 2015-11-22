@@ -42,7 +42,7 @@ const char* kfinder_get_key(short signed int   *samples,
     }
 
     // Run the analysis
-    KeyFinder::KeyDetectionResult r;
+    KeyFinder::key_t r;
     try
     {
         r =  k.keyOfAudio(a);
@@ -60,8 +60,7 @@ const char* kfinder_get_key(short signed int   *samples,
 
 
     // And do something with the result!
-    KeyFinder::key_t key = r.globalKeyEstimate;
-    switch(key)
+    switch(r)
     {
         case KeyFinder::A_MAJOR:      return "AM";
         case KeyFinder::A_MINOR:      return "Am";

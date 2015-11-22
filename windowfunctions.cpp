@@ -30,6 +30,7 @@ namespace KeyFinder {
       case WINDOW_HAMMING:
         return 0.54 - (0.46 * cos((2 * PI * n)/(N-1)));
     }
+    return 0.0;
   }
 
   double WindowFunction::gaussianWindow(int n, int N, double sigma) const {

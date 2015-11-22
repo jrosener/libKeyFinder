@@ -87,3 +87,22 @@ $ qmake
 $ make
 $ make install
 ```
+
+# BUILD process (using Qmake and QtCreator)
+
+## Ubuntu 15.04 / Debian 8
+1. sudo apt-get install build-esential qt5-default
+2. sudo apt-get install libboost-all-dev
+3. sudo apt-get install libfftw3-dev
+4. qmake LibKeyFinder.pro
+5. make
+6. sudo make install
+
+## Windows VC++ 10.0 - 32bits
+1. Install Qt Creator
+2. Install Windows SDK for Windows 7.1 (provides VS2010 compiler, aka Visual C++ 10.0)
+3. Extract vs2010-external_libs\boost_x_xx_x.zip
+4. In QtCreator load project LibKeyFinder.pro
+5. Select the compiler kit: "Microsoft Windows SDK for Windows 7 (7.1.x) (x86)"
+6. On project >> Run qmake
+7. On project >> Build

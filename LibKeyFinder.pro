@@ -121,6 +121,11 @@ unix{
   INSTALLS += header
 }
 
+unix{
+  target.path = /usr/lib
+  INSTALLS += target
+}
+
 win32{
   # FFTW3 (dynamic lib)
   LIBS += -L$$PWD/vs2010-external_libs/fftw-3.3.3-dll32/ -llibfftw3-3
