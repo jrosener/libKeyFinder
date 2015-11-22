@@ -61,7 +61,11 @@ echo ""
 echo ""
 
 echo "************************* Get version from .pro ************************"
-VERSION=$(cat ../../LibKeyFinder.pro | grep 'VERSION =' | cut -d'=' -f2 | tr -d ' ')
+VERSION=$(cat ../../LibKeyFinder.pro | grep -i '^VERSION ='| cut -d'=' -f2 | tr -d ' ' | tr -d '\r' | cut -d'+' -f1)
+if [[ $1 == test ]] ; then
+    VERSION=$VERSION+SNAPSHOT$(date +%Y%m%d)
+    sed -i s/^VERSION\ =.*/VERSION\ =\ $VERSION/g ../../LibKeyFinder.pro
+fi
 echo VERSION = $VERSION
 check_error
 echo ""
@@ -104,6 +108,7 @@ else
     git archive --format zip --output $WORKINGPATH/archive.zip `git rev-parse --abbrev-ref HEAD`
     unzip $WORKINGPATH/archive.zip -d $WORKINGPATH/$SOURCEDIR_ORIG
     rm -v -rf $WORKINGPATH/$SOURCEDIR_ORIG/dist
+    rm -v -rf $WORKINGPATH/$SOURCEDIR_ORIG/vs2010-external_libs
     ORIGDIR=$(pwd)
     cd $WORKINGPATH
     tar cvzf $TARPACK $SOURCEDIR_ORIG
