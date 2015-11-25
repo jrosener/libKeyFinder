@@ -49,6 +49,10 @@ namespace KeyFinder {
     priv = new LowPassFilterPrivate(order, frameRate, cornerFrequency, fftFrameSize);
   }
 
+  LowPassFilter::~LowPassFilter() {
+    delete priv;
+  }
+
   void LowPassFilter::filter(AudioData& audio, Workspace& workspace, unsigned int shortcutFactor) const {
     priv->filter(audio, workspace, shortcutFactor);
   }
