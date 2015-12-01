@@ -1,3 +1,10 @@
+libkeyfinder (2.1.0-1ppa1~wily1) wily; urgency=medium
+
+  * Upstream integration (2.1.0).
+  * Fix a memory leak. 
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Thu, 26 Nov 2015 18:39:18 +0100
+
 libkeyfinder (0.11.0-1ppa1~vivid1) vivid; urgency=medium
 
   * Build for Ubuntu 15.04 (vivid).
