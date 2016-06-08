@@ -84,8 +84,9 @@ echo "**************************** Copy source code ***************************"
 git checkout debian/changelog
 check_error
 cd ../../
-git ls-files | grep -v googleTest/ | grep -v vs2010-external_libs/ | tar -czf $WORKINGPATH/$TARPACK -T -
+git ls-files | grep -v dist/ | grep -v googleTest/ | grep -v vs2010-external_libs/ | tar -czf $WORKINGPATH/$TARPACK -T -
 ORIGDIR=$(pwd)
+mkdir -p $WORKINGPATH/$SOURCEDIR
 cd $WORKINGPATH/$SOURCEDIR
 tar -xzf $WORKINGPATH/$TARPACK
 cd $ORIGDIR
@@ -93,13 +94,20 @@ check_error
 echo ""
 echo ""
 
+echo "**************************** Install debian/ folder ***************************"
+cp -r dist/debian/debian $WORKINGPATH/$SOURCEDIR/
+check_error
+echo ""
+echo ""
+
 echo "************************* Update changelog ******************************"
 cd dist/debian/debian
+ORIGDIR=$(pwd)
 cd $WORKINGPATH/$SOURCEDIR
 debchange --newversion $VERSIONPACKAGE --distribution $DISTRIB
 check_error
 cat $WORKINGPATH/$SOURCEDIR/debian/changelog
-cp $WORKINGPATH/$SOURCEDIR/debian/changelog $ORIGDIR/debian
+cp $WORKINGPATH/$SOURCEDIR/debian/changelog $ORIGDIR
 check_error
 echo ""
 echo ""
