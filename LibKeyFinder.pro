@@ -27,7 +27,7 @@ CONFIG -= qt
 TARGET = keyfinder
 TEMPLATE = lib
 
-VERSION = 2.1.0
+VERSION = 2.2.1
 
 CONFIG += c++11
 QMAKE_CXXFLAGS += -std=c++11
@@ -101,14 +101,19 @@ macx{
   LIBS += -stdlib=libc++
   QMAKE_CXXFLAGS += -stdlib=libc++
   QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.7
-  QMAKE_MAC_SDK = macosx10.9
+  QMAKE_MAC_SDK = macosx10.12
   CONFIG -= ppc ppc64 x86
   CONFIG += x86_64
-# installs
-  QMAKE_LFLAGS_SONAME  = -Wl,-install_name,/usr/local/lib/
+
+  # installation of headers and the shared object
+  target.path = /usr/local/lib
   headers.path = /usr/local/include/$$TARGET
-  headers.files = $$HEADERS
-  INSTALLS += headers
+  QMAKE_LFLAGS_SONAME = -Wl,-install_name,/usr/local/lib/
+}
+
+unix:!macx{
+  target.path = /usr/lib
+  headers.path = /usr/include/$$TARGET
 }
 
 unix|macx{

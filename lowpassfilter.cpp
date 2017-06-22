@@ -50,7 +50,9 @@ namespace KeyFinder {
   }
 
   LowPassFilter::~LowPassFilter() {
-    delete priv;
+    if (priv != nullptr) {
+      delete priv;
+    }
   }
 
   void LowPassFilter::filter(AudioData& audio, Workspace& workspace, unsigned int shortcutFactor) const {

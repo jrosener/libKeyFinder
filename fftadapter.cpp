@@ -23,6 +23,7 @@
 
 // Included here to allow substitution of a separate implementation .cpp
 #include <cmath>
+#include <cstring>
 #include <fftw3.h>
 
 namespace KeyFinder {
@@ -40,6 +41,7 @@ namespace KeyFinder {
     frameSize = inFrameSize;
     priv->inputReal = (double*)fftw_malloc(sizeof(double) * frameSize);
     priv->outputComplex = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * frameSize);
+    memset(priv->outputComplex, 0, sizeof(fftw_complex) * frameSize);
     fftwPlanMutex.lock();
     priv->plan = fftw_plan_dft_r2c_1d(frameSize, priv->inputReal, priv->outputComplex, FFTW_ESTIMATE);
     fftwPlanMutex.unlock();

@@ -7,6 +7,8 @@ Makefile
 .qmake.stash
 *.o
 *.dylib
+tests/tests
+/ci/alpine/.cache
 *.so*
 *~
 vs2010-external_libs/boost_1_53_0/
