@@ -116,7 +116,7 @@ Note that there is a known intermittent failure in the `FftAdapterTest/ForwardAn
 
 # BUILD process (using Qmake and QtCreator)
 
-## Ubuntu 15.04 / Debian 8
+## Ubuntu 17.04 / Debian 8
 1. sudo apt-get install build-esential qt5-default
 2. sudo apt-get install libboost-all-dev
 3. sudo apt-get install libfftw3-dev
