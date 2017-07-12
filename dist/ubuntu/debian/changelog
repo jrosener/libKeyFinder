@@ -1,3 +1,37 @@
+libkeyfinder (2.2.1-1ppa1~xenial1) xenial; urgency=medium
+
+  * Upstream integration (v2.2.1)
+    * fc3c31a vbump
+    * 3f24aff Bring Mac SDKs up to date
+    * e5ae38b Fix down-sampling shortcut
+    * 7210868 Add alpine linux based travis test
+    * 6795608 Initialize fft output memory
+    * 4668eeb Fix early free
+    * 34209a7 Update to catch 1.8.2
+    * 7f978f1 vbump
+    * 0a5ec7f Merge pull request #12 from fitzgen/document-testing
+    * a604d3e Fix readme insanity
+    * b765433 Merge pull request #17 from dpcasady/cleanup
+    * 15ceb66 Style from PR#20
+    * aef01a7 Fix PR#20 logic
+    * d8b26ea Merge pull request #20 from SonicZentropy/lowpassleak
+    * feb6c24 Merge pull request #9 from EvanPurkhiser/fixup/install-target
+    * 3e5bdd2 Reconfigure .pro to install the .so and headers on unix/mac
+    * 4cbc567 Fixed lowpassfilter's memory leak
+    * 62242f4 Fixed audiodata downsample iterator range bug
+    * c9bd8b9 El Cap
+    * 4d28950 Update readme
+    * e9553c0 Document how to build and run the tests in the README.
+    * 2bf6fc2 Grammar =)
+    * eab6f18 Merge pull request #10 from fitzgen/master
+    * 9ca0b3e Add instructions for building from source to the README
+    * fabd626 Add build artifacts to the .gitignore
+    * d9e0621 Add syntax highlighting to README
+    * 97a98cc Merge pull request #8 from EvanPurkhiser/fixup/linux-build
+    * 0d9634c Move stdlib=libc++ to OSX only section 
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Wed, 12 Jul 2017 10:39:24 +0200
+
 libkeyfinder (2.1.0-1ppa1~wily1) wily; urgency=medium
 
   * Upstream integration (2.1.0).
