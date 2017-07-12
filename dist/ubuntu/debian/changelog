@@ -1,3 +1,9 @@
+libkeyfinder (2.2.1-1ppa1~zesty1) zesty; urgency=medium
+
+  * Build for Ubuntu 17.04 (zesty). 
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Wed, 12 Jul 2017 11:40:13 +0200
+
 libkeyfinder (2.2.1-1ppa1~xenial1) xenial; urgency=medium
 
   * Upstream integration (v2.2.1)
