@@ -15,14 +15,13 @@ function check_error {
 # Usage
 function usage {
     echo ""
-    echo "Usage: generate_libkeyfinder_deb.sh [ppa_type] <--rebuild> <--ppa_id>"
+    echo "Usage: generate_libkeyfinder_deb.sh [ppa_type] <--rebuild>"
     echo ""
     echo " Mandatory args:"
     echo "    [ppa_type]  'test' (for the test PPA url) or 'prod'"
     echo ""
     echo " Optional args:"
     echo "    <--rebuild> <path_to_orig.tar.gz> do not use the actual source code but the defined .orig.tar.gz"
-    echo "    <--ppa_id> <id> is the last PPA id (default=1, to be incremented if building same version and same source code but other deb build script for example)"
     echo ""
     exit
 }
@@ -43,15 +42,6 @@ elif [[ $1 == prod ]] ; then
     PPAPATH=julien-rosener/digitalscratch
 else
     usage
-fi
-
-# Set PPA ID.
-PPA_ID=1
-if [[ $2 == --ppa_id ]] ; then
-    PPA_ID=$3
-fi
-if [[ $4 == --ppa_id ]] ; then
-    PPA_ID=$5
 fi
 
 echo "****************************** Install tools ****************************"
@@ -78,7 +68,8 @@ DEBPATH=$WORKINGPATH/deb
 SOURCEDIR_ORIG=libkeyfinder_source
 ORIGDIR=$(pwd)
 DISTRIB=$(lsb_release -cs)
-VERSIONPACKAGE=$VERSION-1ppa${PPA_ID}~${DISTRIB}1
+DISTRIB_NB=$(lsb_release -rs)
+VERSIONPACKAGE=$VERSION-ppa~${DISTRIB_NB}
 TARPACK=libkeyfinder_$VERSION.orig.tar.gz
 export DEBEMAIL=julien.rosener@digital-scratch.org
 export DEBFULLNAME="Julien Rosener"
@@ -127,7 +118,7 @@ echo "************************* Update changelog ******************************"
 cd dist/ubuntu/debian
 ORIGDIR=$(pwd)
 cd $WORKINGPATH/$SOURCEDIR_ORIG
-debchange --newversion $VERSIONPACKAGE --distribution $DISTRIB
+debchange --newversion $VERSIONPACKAGE --distribution $DISTRIB -b
 check_error
 cat $WORKINGPATH/$SOURCEDIR_ORIG/debian/changelog
 cp -v $WORKINGPATH/$SOURCEDIR_ORIG/debian/changelog $ORIGDIR
