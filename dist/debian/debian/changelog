@@ -1,3 +1,9 @@
+libkeyfinder (2.2.1-1) stable; urgency=medium
+
+  * Build for Debian stable 9 (Stretch).
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Sat, 01 Dec 2018 00:17:09 +0100
+
 libkeyfinder (0.11.0-1) stable; urgency=medium
 
   * Build for new Debian stable 8 (Jessie).
