@@ -1,16 +1,21 @@
 Source: libkeyfinder
 Priority: extra
 Maintainer: Julien Rosener <julien.rosener@digital-scratch.org>
-Build-Depends: debhelper (>= 8.0.0), qt5-default, libboost-all-dev, libfftw3-dev
+Build-Depends:
+ debhelper (>= 8.0.0),
+ libboost-all-dev,
+ libfftw3-dev,
+ qt5-default,
 Standards-Version: 3.9.3
-Section: libs
-Homepage: http://www.ibrahimshaath.co.uk/keyfinder/
+Homepage: https://www.ibrahimshaath.co.uk/keyfinder/
 Vcs-Git: git://github.com/ibsh/libKeyFinder.git
 
 Package: libkeyfinder-dev
 Section: libdevel
 Architecture: any
-Depends: libkeyfinder0 (= ${binary:Version}), ${misc:Depends}
+Depends:
+ libkeyfinder0 (= ${binary:Version}),
+ ${misc:Depends},
 Description: Key estimation library for DJs
  libKeyFinder can be used to estimate the musical key of digital recordings.
  .
@@ -20,6 +25,8 @@ Description: Key estimation library for DJs
 Package: libkeyfinder0
 Section: libs
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
 Description: Key estimation library for DJs
  libKeyFinder can be used to estimate the musical key of digital recordings.
