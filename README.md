@@ -105,14 +105,14 @@ All tests passed (1705510 assertions in 65 test cases)
 
 Note that there is a known intermittent failure in the `FftAdapterTest/ForwardAndBackward` test. Try running the tests a handful of times to determine whether you are hitting the intermittent or have introduced a new bug.
 
+## Build process
+
+### Ubuntu 20.04 / Debian 9
 ```
-
-## Build process.
-
-## Ubuntu 20.04 / Debian 9
 1. sudo apt-get install build-esential qt5-default
 2. sudo apt-get install libboost-all-dev
 3. sudo apt-get install libfftw3-dev
 4. mkdir build
 5. cmake -S . -B build
 6. sudo cmake --build build --target install
+```
