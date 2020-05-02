@@ -40,6 +40,7 @@ else()
     windowfunctions.cpp
     workspace.cpp
     constants.cpp
+    keyfinder_api.cpp
   )
 endif()
 
@@ -65,9 +66,13 @@ install(FILES
   constants.h
   exception.h
   binode.h
+  keyfinder_api.h
   DESTINATION include/keyfinder)
 
 set(LIBKEYFINDER_VERSION 2.2.2)
+set(LIBKEYFINDER_SO_VERSION 2)
+add_compile_definitions(VERSION=${LIBKEYFINDER_VERSION})
+set_target_properties(keyfinder PROPERTIES VERSION ${LIBKEYFINDER_VERSION} SOVERSION ${LIBKEYFINDER_SO_VERSION})
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libKeyFinder.pc.cmake
   ${CMAKE_CURRENT_BINARY_DIR}/libKeyFinder.pc @ONLY)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libKeyFinder.pc DESTINATION lib/pkgconfig)

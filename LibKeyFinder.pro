@@ -80,8 +80,8 @@ OTHER_FILES += README \
     dist/ubuntu/debian/control \
     dist/ubuntu/debian/copyright \
     dist/ubuntu/debian/docs \
-    dist/ubuntu/debian/libkeyfinder0.dirs \
-    dist/ubuntu/debian/libkeyfinder0.install \
+    dist/ubuntu/debian/libkeyfinder2.dirs \
+    dist/ubuntu/debian/libkeyfinder2.install \
     dist/ubuntu/debian/libkeyfinder-dev.dirs \
     dist/ubuntu/debian/libkeyfinder-dev.install \
     dist/ubuntu/debian/rules \
@@ -91,8 +91,8 @@ OTHER_FILES += README \
     dist/debian/debian/control \
     dist/debian/debian/copyright \
     dist/debian/debian/docs \
-    dist/debian/debian/libkeyfinder0.dirs \
-    dist/debian/debian/libkeyfinder0.install \
+    dist/debian/debian/libkeyfinder2.dirs \
+    dist/debian/debian/libkeyfinder2.install \
     dist/debian/debian/libkeyfinder-dev.dirs \
     dist/debian/debian/libkeyfinder-dev.install \
     dist/debian/debian/rules

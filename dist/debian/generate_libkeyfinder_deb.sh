@@ -67,7 +67,7 @@ SOURCEDIR=libkeyfinder_source
 TARPACK=libkeyfinder_$VERSION.orig.tar.gz
 ORIGDIR=$(pwd)
 DISTRIB=stable
-DEBBIN=libkeyfinder0_${VERSIONPACKAGE}_${ARCHI}.deb
+DEBBIN=libkeyfinder2_${VERSIONPACKAGE}_${ARCHI}.deb
 DEBDEV=libkeyfinder-dev_${VERSIONPACKAGE}_${ARCHI}.deb
 export DEBEMAIL=julien.rosener@digital-scratch.org
 export DEBFULLNAME="Julien Rosener"
@@ -149,7 +149,7 @@ echo ""
 echo "************ Install package to local apt repo $REPOPATH *************"
 cd $ORIGDIR
 cd $REPOPATH
-reprepro -A $ARCHI remove $DISTRIB libkeyfinder0
+reprepro -A $ARCHI remove $DISTRIB libkeyfinder2
 reprepro -A $ARCHI remove $DISTRIB libkeyfinder-dev
 reprepro --ask-passphrase -Vb . includedeb stable $WORKINGPATH/${DEBBIN}
 reprepro --ask-passphrase -Vb . includedeb stable $WORKINGPATH/${DEBDEV}

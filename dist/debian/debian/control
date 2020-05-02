@@ -14,7 +14,7 @@ Package: libkeyfinder-dev
 Section: libdevel
 Architecture: any
 Depends:
- libkeyfinder0 (= ${binary:Version}),
+ libkeyfinder2 (= ${binary:Version}),
  ${misc:Depends},
 Description: Key estimation library for DJs
  libKeyFinder can be used to estimate the musical key of digital recordings.
@@ -22,7 +22,7 @@ Description: Key estimation library for DJs
  This package contains the header file and library needed by software which
  uses KeyFinder library.
 
-Package: libkeyfinder0
+Package: libkeyfinder2
 Section: libs
 Architecture: any
 Depends:
