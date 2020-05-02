@@ -9,7 +9,8 @@ Makefile
 *.dylib
 tests/tests
 /ci/alpine/.cache
-*.so*
+build
+*.so
 *~
 vs2010-external_libs/boost_1_53_0/
 debug/
