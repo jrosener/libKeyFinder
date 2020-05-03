@@ -6,6 +6,7 @@ Build-Depends:
  libboost-all-dev,
  libfftw3-dev,
  qt5-default,
+ cmake
 Standards-Version: 3.9.3
 Homepage: https://www.ibrahimshaath.co.uk/keyfinder/
 Vcs-Git: git://github.com/ibsh/libKeyFinder.git
