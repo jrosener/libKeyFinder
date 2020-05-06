@@ -1,5 +1,22 @@
 libkeyfinder (2.2.1-1) stable; urgency=medium
 
+  * Upstream integration (2.2.1)
+    * 9b4440d Update README.md
+    * dadee9f Added missing includes to the CMakeList.txt
+    * 144cb9e add LICENSE file with GPL v3 full text
+    * 8d59db0 CMake: add pkgconfig file
+    * 8581f63 Install cmake in alpine, clear build dir
+    * ee8fc6e CMakeLists.txt: add support for building statically
+    * 12585a6 change Alpine CI to use CMake
+    * a65cc7f add tests/CMakeLists.txt
+    * d0bd51f add CMakeLists.txt
+    * 90f4cf1 Remove QMAKE_MAC_SDK to fix build on newer macOS
+    * f7df566 Include cstring for memset definition
+
+ -- Julien Rosener <julien.rosener@digital-scratch.org>  Sun, 03 May 2020 23:42:53 +0200
+
+libkeyfinder (2.2.1-1) stable; urgency=medium
+
   * Build for Debian stable 9 (Stretch).
 
  -- Julien Rosener <julien.rosener@digital-scratch.org>  Sat, 01 Dec 2018 00:17:09 +0100
