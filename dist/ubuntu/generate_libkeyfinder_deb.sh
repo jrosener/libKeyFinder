@@ -51,10 +51,10 @@ echo ""
 echo ""
 
 echo "************************* Get version from .pro ************************"
-VERSION=$(cat ../../LibKeyFinder.pro | grep -i '^VERSION ='| cut -d'=' -f2 | tr -d ' ' | tr -d '\r' | cut -d'+' -f1)
+VERSION=$(cat ../../CMakeLists.txt | grep 'set(LIBKEYFINDER_VERSION' | cut -d' ' -f2 | tr -d ')')
 if [[ $1 == test ]] ; then
     VERSION=$VERSION+SNAPSHOT$(date +%Y%m%d)
-    sed -i s/^VERSION\ =.*/VERSION\ =\ $VERSION/g ../../LibKeyFinder.pro
+    sed -i s/^set\(LIBKEYFINDER_VERSION.*/set\(LIBKEYFINDER_VERSION\ $VERSION\)/g ../../CMakeLists.txt
 fi
 echo VERSION = $VERSION
 check_error
